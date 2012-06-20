@@ -1,0 +1,71 @@
+// ! mixin.less v1.0 ( 19th June 2012 ) :: jarrett drouillard ( @kuatsure )
+
+#gradient {
+	.linear( @direction: top, @start: #fff, @end: #000, @old-webkit-start: left top, @old-webkit-end: left bottom ) {
+//		background-color: @start;
+		background-image: -webkit-gradient(linear, @old-webkit-start, @old-webkit-end, from(@start), to(@end));
+		background-image: -webkit-linear-gradient(@direction, @start, @end);
+		background-image: -moz-linear-gradient(@direction, @start, @end);
+		background-image: -o-linear-gradient(@direction, @start, @end);
+		background-image: -ms-linear-gradient(@direction, @start, @end);
+		background-image: linear-gradient(@direction, @start, @end);
+		filter: ~"progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr='@{start}', EndColorStr='@{end}')";
+	}
+	
+	.linear-colorstop {
+	
+		.two( @direction: top, @start: #fff, @mid: #ccc, @stop: 50%, @end: #000, @old-webkit-start: left top, @old-webkit-end: left bottom ) {
+			background-image: -webkit-gradient(linear, @old-webkit-start, @old-webkit-end, 
+								color-stop(0%, @start), 
+								color-stop(@stop, @mid), 
+								color-stop(100%,@end));
+			background-image: -webkit-linear-gradient(@direction,
+								@start 0%, 
+								@mid @stop, 
+								@mid @stop + 1, 
+								@end 100%);
+			background-image: -moz-linear-gradient(@direction,
+								@start 0%,
+								@mid @stop,
+								@mid @stop + 1,
+								@end 100%);
+			background-image: -o-linear-gradient(@direction,
+								@start 0%,
+								@mid @stop,
+								@mid @stop + 1,
+								@end 100%);
+			background-image: -ms-linear-gradient(@direction,
+								@start 0%,
+								@mid @stop,
+								@mid @stop + 1,
+								@end 100%);
+			background-image: linear-gradient(@direction,
+								@start 0%,
+								@mid @stop,
+								@mid @stop + 1,
+								@end 100%);
+			filter: ~"progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr='@{start}', EndColorStr='@{end}')";
+		}
+	}
+	
+	.radial ( @direction: 50% 50%, @origin: #fff, @end: #000 ) {
+		background-color: #e9b90f;
+		background-image: -webkit-gradient(radial, @direction,0,@direction,200, from(@end), to(@origin));
+		background-image: -webkit-radial-gradient(@direction, @origin, @end);
+		background-image: -moz-radial-gradient(@direction, @origin, @end);
+		background-image: -o-radial-gradient(@direction, @origin, @end);
+		background-image: -ms-radial-gradient(@direction, @origin, @end);
+		background-image: radial-gradient(@direction, @origin, @end);
+	}
+}
+
+.bk-img-grad (@path, @direction: top, @start: #fff, @end: #000, @old-webkit-start: left top, @old-webkit-end: left bottom) {
+//	background-color: @start;
+	background-image: url(@path), -webkit-gradient(linear, @old-webkit-start, @old-webkit-end, from(@start), to(@end));
+	background-image: url(@path), -webkit-linear-gradient(@direction, @start, @end);
+	background-image: url(@path), -moz-linear-gradient(@direction, @start, @end);
+	background-image: url(@path), -o-linear-gradient(@direction, @start, @end);
+	background-image: url(@path), -ms-linear-gradient(@direction, @start, @end);
+	background-image: url(@path), linear-gradient(@direction, @start, @end);
+	filter: ~"progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr='@start', EndColorStr='@end')";
+}
